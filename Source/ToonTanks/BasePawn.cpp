@@ -11,14 +11,14 @@ ABasePawn::ABasePawn()
 	PrimaryActorTick.bCanEverTick = true;
 
 	CapsuleComponent_ = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
-	TankBaseMesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tank Base Mesh"));
-	TankTurretMesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tank Turret Mesh"));
+	BaseMesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tank Base Mesh"));
+	TurretMesh_ = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tank Turret Mesh"));
 	ProjectileSpawnPoint_ = CreateDefaultSubobject<USceneComponent>(TEXT("Spawn Point"));
 
 	RootComponent = CapsuleComponent_;
-	TankBaseMesh_->SetupAttachment(CapsuleComponent_);
-	TankTurretMesh_->SetupAttachment(TankBaseMesh_);
-	ProjectileSpawnPoint_->SetupAttachment(TankTurretMesh_);
+	BaseMesh_->SetupAttachment(CapsuleComponent_);
+	TurretMesh_->SetupAttachment(BaseMesh_);
+	ProjectileSpawnPoint_->SetupAttachment(TurretMesh_);
 
 }
 
