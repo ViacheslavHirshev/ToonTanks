@@ -25,9 +25,13 @@ private:
 	class UCameraComponent* Camera_ { nullptr };
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
-	float TankSpeed {0.f};
+	float TankSpeed {200.f};
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float RotationSpeed{ 60.f };
 
 	void Move(float Value);
+	void Turn(float Value);
 
 public:
 	// Called to bind functionality to input
