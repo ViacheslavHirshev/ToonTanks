@@ -25,10 +25,13 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category="Health")
 	float MaxHealth{ 100.f };
 
+	UPROPERTY(EditAnywhere, Category = "Health")
 	float CurrentHealth{ 100.f };
+
+	class AToonTanksGameMode* GameModePtr;
 
 	UFUNCTION()
 	void DamageTaken(AActor* DamagedActor, float DamageAmount, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser);

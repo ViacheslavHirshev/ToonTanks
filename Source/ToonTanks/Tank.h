@@ -33,7 +33,7 @@ private:
 	void Move(float Value);
 	void Turn(float Value);
 
-	APlayerController* PlayerControllerRef {nullptr};
+	APlayerController* TankPlayerController {nullptr};
 
 protected:
 	// Called when the game starts or when spawned
@@ -45,4 +45,8 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController();
 };
