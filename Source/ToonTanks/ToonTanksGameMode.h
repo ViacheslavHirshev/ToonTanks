@@ -22,11 +22,18 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 private:
 	class ATank* Tank{ nullptr };
 	class AToonTanksPlayerController* TanksPlayerController{ nullptr };
 
-	float StartDelay = 3.f;
+	float StartDelay{ 3.f };
+	int32 TowersCount{ 0 };
 
 	void HandleGameStart();
+	int32 GetTowersCount();
+
 };
