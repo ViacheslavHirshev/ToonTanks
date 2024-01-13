@@ -27,7 +27,10 @@ bool ATower::IsFirePossible()
 
 void ATower::CheckFireCondition()
 {
-	if (IsFirePossible())
+	if (Tank == nullptr)
+		return;
+
+	if (IsFirePossible() && Tank->bIsAlive)
 		Fire();
 }
 

@@ -12,17 +12,29 @@ class TOONTANKS_API AProjectile : public AActor
 	GENERATED_BODY()
 	
 private:
-	UPROPERTY(EditDefaultsOnly, Category = "Components")
-	UStaticMeshComponent* ProjectileBody;
+	UPROPERTY(EditDefaultsOnly)
+	UStaticMeshComponent* ProjectileBody{ nullptr };
 
-	UPROPERTY(VisibleAnywhere, Category="Components")
-	class UProjectileMovementComponent* MovementComponent;
+	UPROPERTY(VisibleAnywhere)
+	class UProjectileMovementComponent* MovementComponent{ nullptr };
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	class UParticleSystemComponent* ParticleComponent{ nullptr };
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class USoundBase* LaunchSound{ nullptr };
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	USoundBase* HitSound{ nullptr };
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& HitResult);
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	float BaseDamage{ 50.f };
+
+	UPROPERTY(EditAnywhere, Category="Effects")
+	UParticleSystem* HitParticles{ nullptr };
 
 public:	
 	// Sets default values for this actor's properties

@@ -17,6 +17,8 @@ class TOONTANKS_API ATank : public ABasePawn
 public:
 	ATank();
 
+	bool bIsAlive{ true };
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class USpringArmComponent* SpringArm_ { nullptr };
