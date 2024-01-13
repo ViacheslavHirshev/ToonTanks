@@ -24,9 +24,6 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	class USoundBase* LaunchSound{ nullptr };
 
-	UPROPERTY(EditAnywhere, Category = "Combat")
-	USoundBase* HitSound{ nullptr };
-
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& HitResult);
 
